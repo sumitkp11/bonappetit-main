@@ -11,4 +11,5 @@ The UI can be found [here](https://sumitkp11.github.io/bonappetit-main/)
 - Find import button and import the .sql file found in this repository.
 
 **The website has been configured successfully**
+
 _*This project was made in a group of two, so I and @[Shubham Kumar](https://www.linkedin.com/in/shubamkr13/) worked together on this project_

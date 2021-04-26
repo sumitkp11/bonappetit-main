@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    
+    <!-- meta data information -->
+    <meta charset="UTF-8">
+  <meta name="description" content="Ingredients Finder with Nutritional Values of Indian Dishes">
+  <meta name="keywords" content="ingredients finder,nutritional values,indian dishes">
+  <meta name="author" content="Sumit Kumar">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109819301-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109819301-1');
+</script>
+  <style type="text/css">
+    body{
+        font-family: Arail, sans-serif;
+    }
+    /* Formatting search box */
+    .search-box{
+        width: 300px;
+        position: relative;
+        display: inline-block;
+        font-size: 14px;
+    }
+    .search-box input[type="text"]{
+        height: 32px;
+        padding: 5px 10px;
+        border: 1px solid #CCCCCC;
+        font-size: 14px;
+    }
+    .result{
+        position: absolute;        
+        z-index: 999;
+        top: 100%;
+        left: 0;
+    }
+    .search-box input[type="text"], .result{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    /* Formatting result items */
+    .result p{
+        margin: 0;
+        padding: 7px 10px;
+        border: 1px solid #CCCCCC;
+        border-top: none;
+        cursor: pointer;
+    }
+    .result p:hover{
+        background: #f2f2f2;
+    }
+</style>
+
+<!-- START OF LIVE SEARCH JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("backend-search.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
+<!-- END OF LIVE SEARCH JAVASCRIPT -->
+   
+    <!-- START OF LINKING ALL EXTERNAL CSS-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<meta charset="UTF-8">
+	<title>bon appétit - The foodie's tool.</title>
+	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/fonts/stylesheet.css" />
+	<link rel="stylesheet" href="css/fonts/fonts.css" />
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/animat/animate.min.css" />
+	<link rel="stylesheet" href="css/fancybox/jquery.fancybox.css" />
+	<link rel="stylesheet" href="css/nivo-lightbox/nivo-lightbox.css" />
+	<link rel="stylesheet" href="css/themes/default/default.css" />
+	<link rel="stylesheet" href="css/owl-carousel/owl.carousel.css" />
+	<link rel="stylesheet" href="css/owl-carousel/owl.theme.css" />
+	<link rel="stylesheet" href="css/owl-carousel/owl.transitions.css">
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/responsive.css" />
+	<!-- END OF LINKING ALL EXTERNAL CSS-->
+	
+</head>
+<body>
+
+	<div class='preloader'><div class='loaded'>&nbsp;</div></div>
+	
+	<header id="home" class="header">
+		<div class="main_menu_bg navbar-fixed-top">
+			<div class="container">
+				<div class="row">
+					<div class="nave_menu">
+					<nav class="navbar navbar-default">
+					  <div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+						  <a class="navbar-brand" href="#">
+							<div class="logo">
+								<img src="images/logo.png" alt="" />
+							</div>
+						  </a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						  
+						  <ul class="nav navbar-nav navbar-right">
+							<li class="active"><a href="http://bonappetit.cf">Home</a></li>
+							
+							<li><a href="#contact">Contact</a></li>
+							
+							
+							
+						  </ul>
+						</div><!-- /.navbar-collapse -->
+					  </div><!-- /.container-fluid -->
+					</nav>
+					</div>	
+				</div><!--End of row -->
+				
+			</div><!--End of container -->
+			
+		</div>
+	</header> <!--End of header -->
+	
+	
+	
+	<section id="banner" class="banner">
+		<div class="container">
+			<div class="row">
+				<div class="main_banner_area text-center">
+					<div class="col-md-12 col-sm-12">
+						<div class="single_banner_text wow zoomIn" data-wow-duration="1s">
+							<center>
+        					   <br>
+        					   <br>
+        					   <!--Live Search Here-->
+							    <div class="search-box">
+							 <form action="dish_search.php#abouts" method="POST" >
+							   <input type="text" name="dish_selected" placeholder="Search your dish..." autocomplete="off"  />
+							 	<center> <div class="center-content">
+											<input type="submit" value="SEARCH" class="btn btn-lg">
+										  </div>
+										 
+								    </center>
+							  <div class="result"></div>
+							  </form>
+							 
+						
+							</div>
+
+							<script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+							</script>
+							</center>
+							
+							
+						</div>
+					</div>
+					
+					
+					
+				
+				
+			</div>
+		</div>
+	</section>
+	<!-- End of Banner Section -->
+	
+
+			<!-- Contact form -->
+		<section id="contact" class="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="head_title text-center wow zoomIn" data-wow-duration="0.5s">
+							<h2>Contact Us</h2>
+							<div class="separetor"></div>
+							<p>We are here to help. Want to learn more about our services? Please get in touch, we'd love to hear from you!</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="messsage_contant">
+						<div class="col-md-7 col-sm-7">
+							<div class="single_message_left wow fadeIn" data-wow-duration="1s">
+								<form action="contact.php" method="POST" id="formid">
+										 <div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<input type="text" class="form-control" name="name" placeholde="Name" required="">
+												</div>
+											</div>
+											
+											<div class="col-md-6">
+												<div class="form-group">
+													<input type="email" class="form-control" name="email" placeholder="Email" required="">
+												</div>
+											</div>
+										 </div>
+										-
+										  
+
+										  <div class="form-group">
+											<textarea class="form-control" name="message" rows="8" placeholder="Message"></textarea>
+										  </div>
+
+										  <div class="center-content">
+											<input type="submit" value="SEND" class="btn btn-lg">
+										  </div>
+										<!--</div>--> 
+								</form>
+							</div>
+						</div>
+						
+						<div class="col-md-5 col-sm-5">
+							<div class="single_message_right wow fadeIn" data-wow-duration="1s">
+								
+								<p>
+									<i class="fa fa-map-marker"></i> 
+									CSE Department, Sharda University
+									<span>Greater Noida, U.P., India</span>
+								</p>
+								<p><i class="fa fa-envelope-o"></i>sumitapps11@gmail.com</p>
+								<p><i class="fa fa-phone"></i>+91-9546-025-267</p>
+								
+							</div>
+						</div>
+					</div> <!-- End of messsage contant-->
+				</div>
+			</div>
+		</section>	
+	
+		<footer id="footer" class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="main_footer text-center wow zoomIn" data-wow-duration="1s">
+					
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	<!-- START OF SCROLL TO TOP -->
+	<div class="scrollup">
+		<a href="#"><i class="fa fa-chevron-up"></i></a>
+	</div>
+	<!-- END OF SCROLL TO TOP -->
+	
+	
+	
+	
+
+	<script type="text/javascript" src="js/jquery/jquery.js"></script>
+	
+	<script type="text/javascript" src="js/script.js"></script>
+	
+	<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="js/fancybox/jquery.fancybox.pack.js"></script>
+	
+	<script type="text/javascript" src="js/nivo-lightbox/nivo-lightbox.min.js"></script>
+	
+	<script type="text/javascript" src="js/owl-carousel/owl.carousel.min.js"></script>
+	
+	
+	
+	
+	
+	<script type="text/javascript" src="js/jquery-easing/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/wow/wow.min.js"></script>
+	<!--<script type="text/javascript" src="js/counterup/counterup.min.js"></script>-->
+	
+	<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>-->
+	<!--<script type="text/javascript" src="js/counterup/jquery.counterup.min.js"></script>-->
+	
+	
+	<script type="text/javascript" src="js/isotop/isotope.min.js"></script>
+	<script type="text/javascript" src="js/isotop/isotop.function.js"></script>
+	
+	<script type="text/javascript" src="js/masonry/masonry.min.js"></script>
+	
+	<script type="text/javascript" src="js/mixitup/jquery.mixitup.min.js"></script>
+	<script type="text/javascript" src="js/masonry/masonry.pkgd.min.js"></script>
+</body>
+</html>

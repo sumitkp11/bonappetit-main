@@ -1,0 +1,54 @@
+
+#like_button
+{
+ 
+  width:75px;
+  height:75px;
+  padding:10px;
+  
+}
+#dislike_button
+{
+  width:75px;
+  height:75px;
+  padding:10px;
+}
+#totalvotes
+{
+   float:left;
+  background-color:white;
+  padding:20px;
+ 
+  margin-top:10px;
+  width:250px;
+  box-shadow:0px 0px 10px 0px #122A0A;
+  display:none;
+}
+#totalvotes p
+{
+  margin:0px;
+  padding:0px;
+}
+#totalvotes #total_rating
+{
+  font-weight:bold;
+  margin:0px;
+}
+#totalvotes img
+{
+  width:20px;
+  height:20px;
+  margin-right:5px;
+}
+#totalvotes #total_like
+{
+  float:left;
+  margin-top:20px;
+}
+
+#totalvotes #total_dislike
+{
+  clear:both;
+  float:left;
+  margin-top:20px;
+}

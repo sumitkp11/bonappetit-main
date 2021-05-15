@@ -1,5 +1,5 @@
 # bonappetit
-bonappetit was my under graduation major project. Basically what it does is it fetches main ingredients used in dishes and nutritional values from a table written in MySQL.
+bonappetit was my under graduation major project. Basically what it does is it fetches main ingredients used in dishes and nutritional values from a table written in MySQL. This website offers to be alternatives to menu card given in restaurants and cafes.
 
 This project requres web hosting and SQL database hosting in order to run properly.
 The UI can be found [here](https://sumitkp11.github.io/bonappetit-main/)
